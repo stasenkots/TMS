@@ -4,4 +4,6 @@
     <string name="homework3">Homework3</string>
     <string name="homework2">Homework2</string>
     <string name="my_first_app">My first app</string>
+    <string name="buttonLoad">Load</string>
+    <string name="enter_image_url">enter image url</string>
 </resources>
