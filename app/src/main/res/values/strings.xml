@@ -6,4 +6,8 @@
     <string name="my_first_app">My first app</string>
     <string name="buttonLoad">Load</string>
     <string name="enter_image_url">enter image url</string>
+    <string name="start">start</string>
+    <string name="stop">stop</string>
+    <string name="flags">flags</string>
+    <string name="animation">animation</string>
 </resources>
