@@ -10,4 +10,14 @@
     <string name="stop">stop</string>
     <string name="flags">flags</string>
     <string name="animation">animation</string>
+    <string name="minskcountry">MinskCountry</string>
+    <string name="potato_0">potato - 0</string>
+    <string name="cabbage_0">cabbage - 0</string>
+    <string name="beet_0">beet - 0</string>
+    <string name="brestcountry">BrestCountry</string>
+    <string name="grodnocountry">GrodnoCountry</string>
+    <string name="gomelcountry">GomelCountry</string>
+    <string name="homework_4">homework 4</string>
+    <string name="homework5">homework5</string>
+    <string name="homework6">homework6</string>
 </resources>
