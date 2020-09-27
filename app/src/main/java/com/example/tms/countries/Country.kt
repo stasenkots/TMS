@@ -6,7 +6,7 @@ import kotlin.random.Random
 
 
 
-interface Country:Comparable<Country> {
+interface Country{
     var potato:MutableLiveData<Int>
     var cabbage:MutableLiveData<Int>
     var beet:MutableLiveData<Int>
@@ -21,10 +21,6 @@ interface Country:Comparable<Country> {
     }
     }
 
-    override fun compareTo(other: Country): Int {
-        val summaryCrop=potato.value?.plus(cabbage.value ?:0)?.plus(beet.value?:0)?:0
-        val otherSummaryCrop=other.potato.value?.plus(other.cabbage.value ?:0)?.plus(other.beet.value?:0)?:0
-        return summaryCrop-otherSummaryCrop
-    }
+
 }
 

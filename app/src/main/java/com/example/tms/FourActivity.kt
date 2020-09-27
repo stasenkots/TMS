@@ -17,23 +17,6 @@ class FourActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_four)
         val viewModel: MyViewModel = ViewModelProvider(this).get(MyViewModel::class.java)
-        fun setObserver(country: Country, layout: LinearLayout) {
-            for (textView in layout.children) {
-                textView as TextView
-                when (textView.text.toString().substringBefore(" ")) {
-                    "potato" -> country.potato.observe(this, Observer { potatoData ->
-                        textView.text = "potato - $potatoData"
-                    })
-                    "cabbage" -> country.cabbage.observe(this, Observer { cabbageData ->
-                        textView.text = "cabbage - $cabbageData"
-                    })
-                    "beet" -> country.beet.observe(this, Observer { beetData ->
-                        textView.text = "beet - $beetData"
-                    })
-                }
-
-            }
-        }
         button_start.setOnClickListener {
             setObserver(MinskCountry,minsk_country_layout)
             setObserver(BrestCountry,brest_country_layout)
@@ -47,5 +30,22 @@ class FourActivity : AppCompatActivity() {
             viewModel.findWinnerInReapingCrop()
         }
 
+    }
+    private fun setObserver(country: Country, layout: LinearLayout) {
+        for (textView in layout.children) {
+            textView as TextView
+            when (textView.text.toString().substringBefore(" ")) {
+                "potato" -> country.potato.observe(this, Observer { potatoData ->
+                    textView.text = "potato - $potatoData"
+                })
+                "cabbage" -> country.cabbage.observe(this, Observer { cabbageData ->
+                    textView.text = "cabbage - $cabbageData"
+                })
+                "beet" -> country.beet.observe(this, Observer { beetData ->
+                    textView.text = "beet - $beetData"
+                })
+            }
+
+        }
     }
 }
