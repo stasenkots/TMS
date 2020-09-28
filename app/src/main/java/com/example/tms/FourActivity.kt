@@ -2,6 +2,7 @@ package com.example.tms
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 import android.widget.LinearLayout
 import android.widget.TextView
 import android.widget.Toast
@@ -26,7 +27,7 @@ class FourActivity : AppCompatActivity() {
                 Toast.makeText(this, "${winnerData.name} is winner", Toast.LENGTH_LONG).show()
             })
             button_start.isEnabled = false
-            button_start.isVisible = false
+            button_start.visibility =View.GONE
             viewModel.findWinnerInReapingCrop()
         }
 
