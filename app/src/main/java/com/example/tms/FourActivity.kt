@@ -12,17 +12,24 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.example.tms.countries.*
 import kotlinx.android.synthetic.main.activity_four.*
+import kotlinx.coroutines.InternalCoroutinesApi
 
 class FourActivity : AppCompatActivity() {
+    @InternalCoroutinesApi
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_four)
         val viewModel: MyViewModel = ViewModelProvider(this).get(MyViewModel::class.java)
+        val layoutsToCountries= mapOf(
+            minsk_country_layout to viewModel.countries["MinskCountry"],
+            brest_country_layout to viewModel.countries["BrestCountry"],
+            gomel_country_layout to viewModel.countries["GomelCountry"],
+            grondo_country_layout to viewModel.countries["GrodnoCountry"]
+            )
         button_start.setOnClickListener {
-            setObserver(MinskCountry,minsk_country_layout)
-            setObserver(BrestCountry,brest_country_layout)
-            setObserver(GrodnoCountry,grondo_country_layout)
-            setObserver(GomelCountry,gomel_country_layout)
+            for ((layout,country) in  layoutsToCountries){
+                setObserver(layout,country)
+            }
             viewModel.winner.observe(this, Observer {winnerData->
                 Toast.makeText(this, "${winnerData.name} is winner", Toast.LENGTH_LONG).show()
             })
@@ -32,17 +39,17 @@ class FourActivity : AppCompatActivity() {
         }
 
     }
-    private fun setObserver(country: Country, layout: LinearLayout) {
+    private fun setObserver(layout: LinearLayout,country: Country?) {
         for (textView in layout.children) {
             textView as TextView
             when (textView.text.toString().substringBefore(" ")) {
-                "potato" -> country.potato.observe(this, Observer { potatoData ->
+                "potato" -> country?.potato?.observe(this, Observer { potatoData ->
                     textView.text = "potato - $potatoData"
                 })
-                "cabbage" -> country.cabbage.observe(this, Observer { cabbageData ->
+                "cabbage" -> country?.cabbage?.observe(this, Observer { cabbageData ->
                     textView.text = "cabbage - $cabbageData"
                 })
-                "beet" -> country.beet.observe(this, Observer { beetData ->
+                "beet" -> country?.beet?.observe(this, Observer { beetData ->
                     textView.text = "beet - $beetData"
                 })
             }
