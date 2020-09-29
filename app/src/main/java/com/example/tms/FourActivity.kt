@@ -15,18 +15,17 @@ import kotlinx.android.synthetic.main.activity_four.*
 import kotlinx.coroutines.InternalCoroutinesApi
 
 class FourActivity : AppCompatActivity() {
-    @InternalCoroutinesApi
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_four)
         val viewModel: MyViewModel = ViewModelProvider(this).get(MyViewModel::class.java)
-        val layoutsToCountries= mapOf(
-            minsk_country_layout to viewModel.countries["MinskCountry"],
-            brest_country_layout to viewModel.countries["BrestCountry"],
-            gomel_country_layout to viewModel.countries["GomelCountry"],
-            grondo_country_layout to viewModel.countries["GrodnoCountry"]
-            )
         button_start.setOnClickListener {
+            val layoutsToCountries= mapOf(
+                minsk_country_layout to viewModel.countries["MinskCountry"],
+                brest_country_layout to viewModel.countries["BrestCountry"],
+                gomel_country_layout to viewModel.countries["GomelCountry"],
+                grondo_country_layout to viewModel.countries["GrodnoCountry"]
+            )
             for ((layout,country) in  layoutsToCountries){
                 setObserver(layout,country)
             }
