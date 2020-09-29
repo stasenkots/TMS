@@ -9,19 +9,26 @@ import kotlinx.coroutines.*
 
 
 class MyViewModel : ViewModel() {
-    private val countries = arrayListOf(MinskCountry, BrestCountry, GomelCountry, GrodnoCountry)
+    val countries= mapOf(
+        "MinskCountry" to Country("MinskCountry"),
+        "GomelCountry" to Country("GomelCountry"),
+        "GrodnoCountry" to Country("GrodnoCountry"),
+        "BrestCountry" to Country("BrestCountry")
+    )
     @Volatile var winner=MutableLiveData<Country>()
-    fun findWinnerInReapingCrop(){
-        for (country in countries) {
-           CoroutineScope(Dispatchers.IO).launch {
-                country.reapCrop()
-            }.invokeOnCompletion {
-               if (winner.value==null){
-                   winner.postValue(country)
-               }
-           }
+    @InternalCoroutinesApi
+    fun findWinnerInReapingCrop()= CoroutineScope(Dispatchers.IO).launch{
+        for (country in countries.values) {
+                CoroutineScope(Dispatchers.IO).launch {
+                    country.reapCrop()
+                }.invokeOnCompletion{
+                    kotlinx.coroutines.internal.synchronized(this) {
+                        if (winner.value== null){
+                            winner.postValue(country)
+                        }
+                    }
+                }
         }
-
     }
 }
 
