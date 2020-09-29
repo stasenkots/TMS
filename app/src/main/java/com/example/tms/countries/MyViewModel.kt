@@ -18,17 +18,14 @@ class MyViewModel : ViewModel() {
     @Volatile
     var winner = MutableLiveData<Country>()
 
-    @InternalCoroutinesApi
     fun findWinnerInReapingCrop() {
         for (country in countries.values) {
             CoroutineScope(Dispatchers.IO).launch {
                 country.reapCrop()
             }.invokeOnCompletion {
-                kotlinx.coroutines.internal.synchronized(this) {
                     if (winner.value == null) {
                         winner.postValue(country)
                     }
-                }
             }
         }
     }
