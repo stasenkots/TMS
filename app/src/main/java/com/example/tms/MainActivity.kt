@@ -3,6 +3,7 @@ package com.example.tms
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.example.tms.FiveHW.FiveActivity
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
@@ -23,6 +24,10 @@ class MainActivity : AppCompatActivity() {
         }
         button4.setOnClickListener {
             val intent= Intent(this,FourActivity::class.java)
+            startActivity(intent)
+        }
+        button5.setOnClickListener {
+            val intent= Intent(this, FiveActivity::class.java)
             startActivity(intent)
         }
 
