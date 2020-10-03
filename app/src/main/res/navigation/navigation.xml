@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation"
+    app:startDestination="@id/fragment_home"
+    >
+    <fragment
+        android:id="@+id/fragment_home"
+        tools:layout="@layout/fragment_home"
+        android:name="com.example.tms.FiveHW.HomeFragment"
+        >
+        <action
+            android:id="@+id/add_coffee"
+            app:destination="@id/fragment_add_coffee" />
+        <action
+            android:id="@+id/show_collection"
+            app:destination="@id/fragment_show_collection" />
+    </fragment>
+    <fragment
+        android:id="@+id/fragment_add_coffee"
+        tools:layout="@layout/fragment_add_coffee"
+        android:name="com.example.tms.FiveHW.AddCoffeeFragment"
+        />
+    <fragment
+        android:id="@+id/fragment_show_collection"
+        tools:layout="@layout/fragment_show_collection"
+        android:name="com.example.tms.FiveHW.ShowCollectionFragment"
+        />
+</navigation>

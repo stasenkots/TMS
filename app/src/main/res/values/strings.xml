@@ -20,4 +20,9 @@
     <string name="homework_4">homework 4</string>
     <string name="homework5">homework5</string>
     <string name="homework6">homework6</string>
+    <string name="add_coffee">add coffee</string>
+    <string name="show_collection">show collection</string>
+    <string name="sort_of_coffee">Sort of coffee</string>
+    <string name="price_of_coffee">Price of coffee</string>
+    <string name="image_url_of_coffee">image url of coffee</string>
 </resources>
