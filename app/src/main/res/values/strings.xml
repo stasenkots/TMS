@@ -25,4 +25,13 @@
     <string name="sort_of_coffee">Sort of coffee</string>
     <string name="price_of_coffee">Price of coffee</string>
     <string name="image_url_of_coffee">image url of coffee</string>
+    <string name="login">Login</string>
+    <string name="password">password</string>
+    <string name="sign_up">Sign Up</string>
+    <string name="login_cannot_be_empty">login cannot be empty</string>
+    <string name="password_cannot_be_empty">password cannot be empty</string>
+    <string name="password_length_must_be_not_less_than_8_chars">password length must be not less than 8 chars</string>
+    <string name="you_are_registered">You are registred!</string>
+    <string name="ok">OK</string>
+    <string name="sign_in">Sign In</string>
 </resources>

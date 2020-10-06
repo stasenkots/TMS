@@ -4,6 +4,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.example.tms.FiveHW.FiveActivity
+import com.example.tms.SixHW.SixActivity
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
@@ -28,6 +29,10 @@ class MainActivity : AppCompatActivity() {
         }
         button5.setOnClickListener {
             val intent= Intent(this, FiveActivity::class.java)
+            startActivity(intent)
+        }
+        button6.setOnClickListener {
+            val intent= Intent(this, SixActivity::class.java)
             startActivity(intent)
         }
 
