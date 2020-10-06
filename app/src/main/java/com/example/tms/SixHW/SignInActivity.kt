@@ -10,7 +10,7 @@ class SignInActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_sign_in)
-        val login=intent.getStringExtra("login")
+        val login=intent.getStringExtra(KEY_LOGIN)
         textView_sixhw.text="Hello $login"
     }
 }

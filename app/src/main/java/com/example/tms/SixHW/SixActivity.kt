@@ -3,12 +3,13 @@ package com.example.tms.SixHW
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.system.Os.accept
 import androidx.core.widget.addTextChangedListener
 import com.example.tms.R
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import kotlinx.android.synthetic.main.activity_six.*
 
+
+const val KEY_LOGIN="login"
 class SixActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -31,11 +32,12 @@ class SixActivity : AppCompatActivity() {
             MaterialAlertDialogBuilder(this)
                 .setTitle(resources.getString(R.string.sign_up))
                 .setMessage(resources.getString(R.string.you_are_registered))
-                .setNeutralButton(resources.getString(R.string.ok)) { dialog, which ->
+                .setNeutralButton(resources.getString(R.string.ok)) { _, _ ->
+
                 }
-                .setPositiveButton(resources.getString(R.string.sign_in)) { dialog, which ->
+                .setPositiveButton(resources.getString(R.string.sign_in)) { _, _ ->
                     val intent = Intent(this, SignInActivity::class.java)
-                    intent.putExtra("login", editText_login.text.toString())
+                    intent.putExtra(KEY_LOGIN, editText_login.text.toString())
                     startActivity(intent)
                 }
                 .setIcon(R.drawable.login)
@@ -43,7 +45,7 @@ class SixActivity : AppCompatActivity() {
         }
     }
 
-    fun changeButtonIsEnabledProperty(){
+    private fun changeButtonIsEnabledProperty(){
         button_sign_up.isEnabled = (
                 textInputLayout_password.error==null
                 && textInputLayout_login.error==null
