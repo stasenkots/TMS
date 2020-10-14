@@ -11,7 +11,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".SixHW.SignInActivity"></activity>
+        <activity android:name=".SevenHW.CardActivity"></activity>
+        <activity android:name=".SevenHW.SevenActivity" />
+        <activity android:name=".SixHW.SignInActivity" />
         <activity android:name=".SixHW.SixActivity" />
         <activity android:name=".FiveHW.FiveActivity" />
         <activity android:name=".FourActivity" />
