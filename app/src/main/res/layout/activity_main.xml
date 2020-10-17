@@ -45,5 +45,12 @@
         app:layout_constraintTop_toBottomOf="@id/button5"
         android:text="@string/homework6" />
 
+    <Button
+        android:id="@+id/button7"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/homework_7"
+        app:layout_constraintTop_toBottomOf="@id/button6" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
