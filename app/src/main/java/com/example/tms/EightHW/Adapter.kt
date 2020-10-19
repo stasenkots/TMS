@@ -6,10 +6,10 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.tms.R
-import com.example.tms.EightHW.CollectionPhones.phones
+import com.example.tms.EightHW.Database.entity.Phone
 import kotlinx.android.synthetic.main.item_phone.view.*
 
-class Adapter : RecyclerView.Adapter<RecyclerView.ViewHolder>(){
+class Adapter(private val phones:List<Phone>) : RecyclerView.Adapter<RecyclerView.ViewHolder>(){
     class ViewHolder(itemView: View) :RecyclerView.ViewHolder(itemView)
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
         val view = LayoutInflater.from(parent.context)
