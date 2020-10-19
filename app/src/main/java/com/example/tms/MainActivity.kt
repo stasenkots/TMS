@@ -3,6 +3,7 @@ package com.example.tms
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.example.tms.EightHW.EightActivity
 import com.example.tms.FiveHW.FiveActivity
 import com.example.tms.SevenHW.SevenActivity
 import com.example.tms.SixHW.SixActivity
@@ -38,6 +39,10 @@ class MainActivity : AppCompatActivity() {
         }
         button7.setOnClickListener {
             val intent= Intent(this, SevenActivity::class.java)
+            startActivity(intent)
+        }
+        button8.setOnClickListener {
+            val intent= Intent(this, EightActivity::class.java)
             startActivity(intent)
         }
 
