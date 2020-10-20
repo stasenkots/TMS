@@ -8,9 +8,7 @@ import androidx.room.PrimaryKey
 data class Phone(
     @PrimaryKey
     val model:String,
-    @ColumnInfo
     val os: String,
-    @ColumnInfo
     val price:Double
 ) {
 
