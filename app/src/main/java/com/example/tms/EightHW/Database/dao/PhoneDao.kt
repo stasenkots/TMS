@@ -10,8 +10,12 @@ import com.example.tms.EightHW.Database.entity.Phone
 interface PhoneDao {
 
     @Query("SELECT * FROM phone_table")
-    suspend fun getAllPhones():List<Phone>
+    suspend fun getAllPhones(): List<Phone>
+
     @Insert
     suspend fun insertPhone(phone: Phone)
+
+    @Query("DELETE FROM phone_table")
+    suspend fun clearPhones()
 
 }

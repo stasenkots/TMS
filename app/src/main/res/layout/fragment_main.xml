@@ -19,6 +19,12 @@
         android:layout_height="wrap_content"
         android:text="@string/add_phone"
         />
+    <Button
+        android:id="@+id/button_clear_phones"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="clear phones"
+        />
 
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/fragment_container"

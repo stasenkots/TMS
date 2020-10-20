@@ -10,7 +10,6 @@ import com.example.tms.R
 import kotlinx.android.synthetic.main.fragment_add_phone.*
 
 
-
 class AddPhoneFragment : Fragment() {
 
     override fun onCreateView(
