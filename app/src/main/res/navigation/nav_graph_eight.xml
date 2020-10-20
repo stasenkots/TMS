@@ -5,5 +5,21 @@
     <fragment
         android:id="@+id/fragment_main"
         android:name="com.example.tms.EightHW.MainFragment"
+        >
+        <action
+            android:id="@+id/action_fragment_main_to_fragment_show_phones"
+            app:destination="@id/fragment_show_phones" />
+        <action
+            android:id="@+id/action_fragment_main_to_fragment_add_phone"
+            app:destination="@id/fragment_add_phone" />
+    </fragment>
+    <fragment
+        android:id="@+id/fragment_add_phone"
+        android:name="com.example.tms.EightHW.AddPhoneFragment"
         />
+    <fragment
+        android:id="@+id/fragment_show_phones"
+        android:name="com.example.tms.EightHW.RecyclePhonesFragment"
+        />
+
 </navigation>

@@ -8,30 +8,18 @@
     android:orientation="vertical">
 
     <Button
-        android:id="@+id/button_show_phones"
+        android:id="@+id/button_to_show_phones_fragment"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/show_phones" />
 
     <Button
-        android:id="@+id/button_add_phone"
+        android:id="@+id/button_to_add_phone_fragment"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/add_phone"
         />
-    <Button
-        android:id="@+id/button_clear_phones"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="clear phones"
-        />
 
-    <androidx.fragment.app.FragmentContainerView
-        android:id="@+id/fragment_container"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.028" />
 
 
 </LinearLayout>

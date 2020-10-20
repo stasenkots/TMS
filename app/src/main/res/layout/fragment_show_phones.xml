@@ -5,6 +5,13 @@
     android:layout_height="match_parent"
     android:layout_width="match_parent"
     android:orientation="vertical">
+    <Button
+        android:layout_marginTop="10dp"
+        android:id="@+id/button_clear_phones"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="clear phones"
+        />
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/editLayout_search_phone"
         android:layout_width="match_parent"
@@ -28,4 +35,5 @@
     android:layout_marginRight="16dp"
     tools:context=".EightHW.RecyclePhonesFragment"
     tools:listitem="@layout/item_phone" />
+
 </LinearLayout>
