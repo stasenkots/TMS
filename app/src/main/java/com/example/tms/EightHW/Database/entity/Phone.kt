@@ -6,7 +6,6 @@ import androidx.room.PrimaryKey
 
 @Entity(tableName = "phone_table")
 data class Phone(
-    @ColumnInfo
     @PrimaryKey
     val model:String,
     @ColumnInfo
