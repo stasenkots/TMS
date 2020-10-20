@@ -35,4 +35,11 @@
     <string name="ok">OK</string>
     <string name="sign_in">Sign In</string>
     <string name="homework_7">Homework 7</string>
+    <string name="show_phones">show phones</string>
+    <string name="add_phone">add phone</string>
+    <string name="delete_phone">delete phone</string>
+    <string name="enter_model">Enter model</string>
+    <string name="enter_os">Enter OS</string>
+    <string name="enter_price">Enter price</string>
+    <string name="homework_8">Homework 8</string>
 </resources>
