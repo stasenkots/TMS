@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:tools="http://schemas.android.com/tools">
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="120dp"
+        android:layout_margin="10dp" >
+        <ImageView
+            android:id="@+id/icon_crypto_currency"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginStart="10dp"
+            />
+        <TextView
+            android:id="@+id/name_crypto_currency"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text="Currency"
+            android:textStyle="bold"
+            android:layout_marginStart="100dp"
+            android:layout_marginTop="25dp"
+            />
+        <TextView
+            android:id="@+id/price_crypto_currency"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text="price"
+            android:layout_marginStart="100dp"
+            android:layout_marginTop="50dp"
+            />
+        <TextView
+            android:id="@+id/percent_change_crypto_currency"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text="percentChange"
+            android:layout_marginStart="100dp"
+            android:layout_marginTop="75dp"
+            />
+
+
+
+
+
+    </androidx.cardview.widget.CardView>
+
+
+</LinearLayout>

@@ -12,8 +12,8 @@ import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.tms.EightHW.CollectionPhones.phones
 import com.example.tms.EightHW.Database.PhoneDB
-import com.example.tms.EightHW.Database.launchIO
-import com.example.tms.EightHW.Database.launchUI
+import com.example.tms.launchIO
+import com.example.tms.launchUI
 import com.example.tms.R
 import kotlinx.android.synthetic.main.fragment_show_phones.*
 
