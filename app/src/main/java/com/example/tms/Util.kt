@@ -1,9 +1,6 @@
 package com.example.tms
 
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.Job
-import kotlinx.coroutines.launch
+import kotlinx.coroutines.*
 
 fun launchIO(task: suspend () -> Unit) =
     CoroutineScope(Dispatchers.IO).launch {
@@ -14,4 +11,8 @@ fun launchUI(task: suspend () -> Unit) =
     CoroutineScope(Dispatchers.Main).launch {
         task()
     }
+suspend fun launchAsync(task: suspend () -> Unit)=
+    CoroutineScope(Dispatchers.IO).async{
+    task()
+}
 

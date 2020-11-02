@@ -8,6 +8,7 @@ import com.example.tms.FiveHW.FiveActivity
 import com.example.tms.NineHW.NineActivity
 import com.example.tms.SevenHW.SevenActivity
 import com.example.tms.SixHW.SixActivity
+import com.example.tms.TenHW.TenActivity
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
@@ -48,6 +49,10 @@ class MainActivity : AppCompatActivity() {
         }
         button9.setOnClickListener {
             val intent= Intent(this, NineActivity::class.java)
+            startActivity(intent)
+        }
+        button10.setOnClickListener {
+            val intent= Intent(this, TenActivity::class.java)
             startActivity(intent)
         }
 
