@@ -1,0 +1,81 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="?attr/appWidgetBackgroundColor"
+    android:padding="@dimen/widget_margin"
+    android:theme="@style/ThemeOverlay.TMS.AppWidgetContainer">
+
+    <ProgressBar
+        android:id="@+id/appwidget_prgress_bar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:layout_marginStart="40dp"/>
+
+    <TextView
+        android:visibility="visible"
+        android:id="@+id/appwidget_temperature"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:textColor="?attr/appWidgetTextColor"
+        android:textSize="40sp"
+        tools:text="+12°C"
+        android:textStyle="bold" />
+    <ImageView
+        android:id="@+id/appwidget_icon"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_alignTop="@id/appwidget_temperature"
+        android:layout_alignBottom="@+id/appwidget_temperature"
+        android:layout_marginStart="130dp"
+       />
+    <TextView
+        android:visibility="gone"
+        android:layout_marginTop="40dp"
+        android:layout_marginStart="20dp"
+        android:id="@+id/appwidget_error"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="?attr/appWidgetTextColor"
+        android:textSize="20sp"
+        tools:text="No connection"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/appwidget_city"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        tools:text="Minsk"
+        android:textColor="?attr/appWidgetTextColor"
+        android:layout_marginTop="70dp"
+        android:layout_alignStart="@id/appwidget_temperature"
+        android:layout_marginEnd="100dp"
+        android:textSize="20sp"    />
+    <TextView
+        android:id="@+id/appwidget_weather_description"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        tools:text="Description"
+        android:textColor="?attr/appWidgetTextColor"
+        android:layout_marginTop="100dp"
+        android:layout_alignStart="@id/appwidget_city"
+        android:layout_marginEnd="100dp"
+        android:textSize="15sp"
+        />
+
+    <ImageView
+        android:id="@+id/appwidget_update"
+        android:layout_width="60dp"
+        android:src="@drawable/ic_baseline_update_24"
+        android:layout_height="40dp"
+        android:layout_alignTop="@id/appwidget_temperature"
+        android:layout_alignBottom="@+id/appwidget_temperature"
+        android:layout_marginStart="200dp"
+        app:tint="#FFF" />
+
+</RelativeLayout>

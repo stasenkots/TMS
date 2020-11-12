@@ -55,6 +55,7 @@ class MainActivity : AppCompatActivity() {
             val intent= Intent(this, TenActivity::class.java)
             startActivity(intent)
         }
+    
 
     }
 }
