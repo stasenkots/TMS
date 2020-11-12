@@ -18,49 +18,51 @@ import com.example.tms.launchUI
 import com.squareup.picasso.Picasso
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
+import retrofit2.Response
+import java.net.SocketTimeoutException
 import kotlin.math.log
 
 
-const val APP_ID = "066684c224288ec83f079c8017eb1057"
 const val REQUEST_CODE = 102
 const val WIDGETID = "WidgetID"
 
 class AppWidget : AppWidgetProvider() {
 
 
-    @RequiresApi(Build.VERSION_CODES.R)
     override fun onUpdate(
         context: Context,
         appWidgetManager: AppWidgetManager,
         appWidgetIds: IntArray
     ) {
+        val views = RemoteViews(context.packageName, R.layout.app_widget)
         for (appWidgetId in appWidgetIds) {
             updateAppWidget(context, appWidgetManager, appWidgetId)
         }
     }
+
     override fun onDeleted(context: Context, appWidgetIds: IntArray) {
         for (appWidgetId in appWidgetIds) {
             deleteTitlePref(context, appWidgetId)
         }
     }
-    @RequiresApi(Build.VERSION_CODES.R)
+
     override fun onReceive(context: Context?, intent: Intent?) {
         super.onReceive(context, intent)
         val views = RemoteViews(context?.packageName, R.layout.app_widget)
-        hideViews(views)
         val appWidgetManager = AppWidgetManager.getInstance(context)
-        val appWidgetId=intent?.getIntExtra(WIDGETID, 0) ?: 0
+        val appWidgetId = intent?.getIntExtra(WIDGETID, 0) ?: 0
+        hideViews(views)
         appWidgetManager.updateAppWidget(appWidgetId, views)
         context?.let {
             updateAppWidget(
-                it, appWidgetManager,appWidgetId
+                it, appWidgetManager, appWidgetId
             )
         }
     }
 
 }
 
-@RequiresApi(Build.VERSION_CODES.R)
+
 internal fun updateAppWidget(
     context: Context,
     appWidgetManager: AppWidgetManager,
@@ -76,11 +78,12 @@ internal fun updateAppWidget(
     )
     views.setOnClickPendingIntent(R.id.appwidget_update, updateIntent)
     launchIO {
-        val response = RetrofitFactory.getRetrofit().getWeatherAPIAsync(
-            loadTitlePref(context, appWidgetId),
-            APP_ID
-        ).await()
-        if (response.isSuccessful) {
+        val response:Response<WeatherResponse>? =
+            RetrofitFactory.getRetrofit().getWeatherAPIAsync(
+                loadTitlePref(context, appWidgetId),
+                APP_ID
+            ).await()
+        if (response?.isSuccessful == true) {
             val weather = response.body()?.let { Mapper.weatherResponseToWeather(it) }
             weather?.city = loadTitlePref(context, appWidgetId)
             val icon = Picasso.get().load(weather?.icon).get()
@@ -90,7 +93,7 @@ internal fun updateAppWidget(
                     setTextViewText(R.id.appwidget_city, it.city.toString())
                     setTextViewText(R.id.appwidget_weather_description, it.description)
                     setImageViewBitmap(R.id.appwidget_icon, icon)
-                    hideViews(views)
+                    showViews(views)
                 }
 
             }
@@ -101,18 +104,30 @@ internal fun updateAppWidget(
                 setViewVisibility(R.id.appwidget_error, View.VISIBLE)
             }
         }
-        launchUI {
-            appWidgetManager.updateAppWidget(appWidgetId, views)
-        }
+        appWidgetManager.updateAppWidget(appWidgetId, views)
+
     }
 
 }
 
-fun hideViews(views: RemoteViews){
+fun showViews(views: RemoteViews) {
     with(views) {
+        setViewVisibility(R.id.appwidget_error, View.GONE)
         setViewVisibility(R.id.appwidget_prgress_bar, View.GONE)
         setViewVisibility(R.id.appwidget_temperature, View.VISIBLE)
         setViewVisibility(R.id.appwidget_city, View.VISIBLE)
+        setViewVisibility(R.id.appwidget_icon, View.VISIBLE)
         setViewVisibility(R.id.appwidget_weather_description, View.VISIBLE)
+    }
+}
+
+fun hideViews(views: RemoteViews) {
+    with(views) {
+        setViewVisibility(R.id.appwidget_error, View.GONE)
+        setViewVisibility(R.id.appwidget_prgress_bar, View.VISIBLE)
+        setViewVisibility(R.id.appwidget_temperature, View.GONE)
+        setViewVisibility(R.id.appwidget_city, View.GONE)
+        setViewVisibility(R.id.appwidget_icon, View.GONE)
+        setViewVisibility(R.id.appwidget_weather_description, View.GONE)
     }
 }

@@ -41,7 +41,7 @@
         android:layout_height="wrap_content"
         android:textColor="?attr/appWidgetTextColor"
         android:textSize="20sp"
-        tools:text="No connection"
+        android:text="@string/no_connection"
         android:textStyle="bold" />
 
     <TextView

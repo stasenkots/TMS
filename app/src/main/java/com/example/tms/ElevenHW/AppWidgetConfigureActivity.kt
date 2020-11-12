@@ -18,8 +18,9 @@ import com.example.tms.R
 val CITIES = arrayOf("Minsk", "London", "Berlin", "Paris")
 
 class AppWidgetConfigureActivity : Activity() {
-    private var appWidgetId = 777
+    private var appWidgetId = AppWidgetManager.INVALID_APPWIDGET_ID
     private lateinit var appWidgetText: AutoCompleteTextView
+
     @RequiresApi(Build.VERSION_CODES.R)
     private var onClickListener = View.OnClickListener {
         val context = this
@@ -72,19 +73,16 @@ class AppWidgetConfigureActivity : Activity() {
 private const val PREFS_NAME = "com.example.tms.ElevenHW.AppWidget"
 private const val PREF_PREFIX_KEY = "appwidget_"
 
-// Write the prefix to the SharedPreferences object for this widget
 internal fun saveTitlePref(context: Context, appWidgetId: Int, text: String) {
     val prefs = context.getSharedPreferences(PREFS_NAME, 0).edit()
     prefs.putString(PREF_PREFIX_KEY + appWidgetId, text)
     prefs.apply()
 }
 
-// Read the prefix from the SharedPreferences object for this widget.
-// If there is no preference saved, get the default from a resource
 internal fun loadTitlePref(context: Context, appWidgetId: Int): String {
     val prefs = context.getSharedPreferences(PREFS_NAME, 0)
     val titleValue = prefs.getString(PREF_PREFIX_KEY + appWidgetId, null)
-    return titleValue ?: context.getString(R.string.appwidget_text)
+    return titleValue ?: ""
 }
 
 internal fun deleteTitlePref(context: Context, appWidgetId: Int) {
