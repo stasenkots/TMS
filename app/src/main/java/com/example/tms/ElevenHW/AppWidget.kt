@@ -34,7 +34,6 @@ class AppWidget : AppWidgetProvider() {
         appWidgetManager: AppWidgetManager,
         appWidgetIds: IntArray
     ) {
-        val views = RemoteViews(context.packageName, R.layout.app_widget)
         for (appWidgetId in appWidgetIds) {
             updateAppWidget(context, appWidgetManager, appWidgetId)
         }
@@ -78,11 +77,16 @@ internal fun updateAppWidget(
     )
     views.setOnClickPendingIntent(R.id.appwidget_update, updateIntent)
     launchIO {
-        val response:Response<WeatherResponse>? =
-            RetrofitFactory.getRetrofit().getWeatherAPIAsync(
-                loadTitlePref(context, appWidgetId),
-                APP_ID
-            ).await()
+        var response: Response<WeatherResponse>? = null
+        try {
+            response =
+                RetrofitFactory.getRetrofit().getWeatherAPIAsync(
+                    loadTitlePref(context, appWidgetId),
+                    APP_ID
+                ).await()
+        } catch (e: Throwable) {
+            Log.e("Errr", e.toString())
+        }
         if (response?.isSuccessful == true) {
             val weather = response.body()?.let { Mapper.weatherResponseToWeather(it) }
             weather?.city = loadTitlePref(context, appWidgetId)
