@@ -46,16 +46,18 @@ class AppWidget : AppWidgetProvider() {
     }
 
     override fun onReceive(context: Context?, intent: Intent?) {
-        super.onReceive(context, intent)
-        val views = RemoteViews(context?.packageName, R.layout.app_widget)
-        val appWidgetManager = AppWidgetManager.getInstance(context)
-        val appWidgetId = intent?.getIntExtra(WIDGETID, 0) ?: 0
-        hideViews(views)
-        appWidgetManager.updateAppWidget(appWidgetId, views)
-        context?.let {
-            updateAppWidget(
-                it, appWidgetManager, appWidgetId
-            )
+        val appWidgetId = intent?.getIntExtra(WIDGETID, AppWidgetManager.INVALID_APPWIDGET_ID) ?: AppWidgetManager.INVALID_APPWIDGET_ID
+        if (appWidgetId!=AppWidgetManager.INVALID_APPWIDGET_ID) {
+            super.onReceive(context, intent)
+            val views = RemoteViews(context?.packageName, R.layout.app_widget)
+            val appWidgetManager = AppWidgetManager.getInstance(context)
+            hideViews(views)
+            appWidgetManager.updateAppWidget(appWidgetId, views)
+            context?.let {
+                updateAppWidget(
+                    it, appWidgetManager, appWidgetId
+                )
+            }
         }
     }
 
