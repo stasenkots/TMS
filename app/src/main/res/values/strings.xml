@@ -46,5 +46,13 @@
     <string name="timer">Timer</string>
     <string name="homework_9">Homework 9</string>
     <string name="homework_10">Homework 10</string>
+
     <string name="fourteen">14</string>
+    <string name="appwidget_text">EXAMPLE</string>
+    <string name="configure">Configure</string>
+    <string name="add_widget">Add widget</string>
+    <string name="homework11">Homework11</string>
+    <string name="no_connection">No connection</string>
+    <string name="homework_12">Homework 12</string>
+    <string name="luxlights">%1$.0f Lux</string>
 </resources>
