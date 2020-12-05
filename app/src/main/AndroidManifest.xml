@@ -14,7 +14,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".TwelveHW.TwelveActivity"></activity>
+        <activity android:name=".TwelveHW.TwelveActivity" />
+        <activity android:name=".FourteenHW.FourteenActivity" />
 
         <receiver android:name=".ElevenHW.AppWidget">
             <intent-filter>
